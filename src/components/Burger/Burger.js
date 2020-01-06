@@ -5,7 +5,7 @@ import classes from './Burger.module.css';
 import BurgerIngredient from './BurgerIngredient/BurgerIngredient';
 
 const burger = (props) => {
-    // console.log(props);
+    console.log(props);
     // no clue what's going on here
     let transformedIngredients = 
         Object.keys(props.ingredients)
@@ -23,7 +23,7 @@ const burger = (props) => {
         transformedIngredients = <p>Please start adding ingredients!</p>
     }
 
-    console.log(transformedIngredients);
+    // console.log(transformedIngredients);
     return (
         <div className={classes.Burger}>
             <BurgerIngredient type="bread-top"/>
