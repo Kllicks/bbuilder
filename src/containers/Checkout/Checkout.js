@@ -6,14 +6,13 @@ import ContactData from './ContactData/ContactData';
 
 
 class Checkout extends Component {
-    // constructor(props) {
-    //     super(props);
         
-    //     this.state = {
-    //         ingredients: null,
-    //         totalPrice: 0
-    //     }
+    // state = {
+    //     ingredients: null,
+    //     totalPrice: 0
+    // }
 
+    // componentWillMount() {
     //     const query = new URLSearchParams(this.props.location.search);
     //     const ingredients = {};
     //     let price = 0;
@@ -26,28 +25,27 @@ class Checkout extends Component {
     //         }
     //     }
     //     this.setState({ingredients: ingredients, totalPrice: price})
-
     // }
-        
-    state = {
-        ingredients: null,
-        totalPrice: 0
-    }
 
-    componentWillMount() {
-        const query = new URLSearchParams(this.props.location.search);
-        const ingredients = {};
-        let price = 0;
-
-        for (let param of query.entries()) {
-            if(param[0] === 'price') {
-                price = param[1];
+    initState = () => {
+        const queryInit = new URLSearchParams(
+            this.props.location.search
+        );
+        const ingredientsInit = {};
+        let priceInit = 0;
+        for (let param of queryInit.entries()) {
+            if (param[0] === 'price') {
+                priceInit = param[1];
             } else {
-                ingredients[param[0]] = +param[1];
+                ingredientsInit[param[0]] = +param[1];
             }
         }
-        this.setState({ingredients: ingredients, totalPrice: price})
-    }
+        return {
+            ingredients: ingredientsInit,
+            price: priceInit
+        };
+    };
+    state = this.initState();
 
     checkoutCancelledHandler = () => {
         this.props.history.goBack();
