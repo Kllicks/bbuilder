@@ -7,10 +7,10 @@ class OrderSummary extends Component {
     
     // This could be a unctional component, doesn't have to be a class
 
-    componentDidUpdate() {
-        console.log('[OrderSummary] componentDidUpdate');
+    // componentDidUpdate() {
+    //     console.log('[OrderSummary] componentDidUpdate');
         
-    }
+    // }
 
     render() {
 
